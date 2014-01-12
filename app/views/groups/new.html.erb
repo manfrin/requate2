@@ -1,1 +1,4 @@
-NEW GROUP 
+<%= form_for @group, url: {action: "create"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>
