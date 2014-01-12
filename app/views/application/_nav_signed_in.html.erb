@@ -1,0 +1,36 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Requate", root_url %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#"><%= current_user.email %></a>
+        <ul class="dropdown">
+          <li><%= link_to "Profile", edit_user_registration_path %></li>
+          <li><a href="#">Settings</a></li>
+          <li class="alert"><%= link_to "Log Out", destroy_user_session_path, method: 'delete' %></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">
+        <%= link_to "Groups", groups_path %>
+        <ul class="dropdown">
+          <% current_user.groups.each do |group| %>
+            <li><%= link_to group.name, groups_path(group) %></li>
+          <% end %>
+          <li><%= link_to "+ Group", new_groups_path %></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>

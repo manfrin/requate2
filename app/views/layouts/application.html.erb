@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Requate" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,11 +12,19 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= render 'nav_signed_in' %>
+    <% else %>
+      <%= render 'nav_signed_out' %>
+    <% end %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <div class="row">
+      <div class="small-9 small-centered columns"><%= yield %></div>
+    </div>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
