@@ -5,10 +5,15 @@ gem 'rails', '4.0.2'
 
 group :development do
   gem 'sqlite3'
+  gem 'better_errors'
 end
 
 group :staging, :production do
   gem 'pg'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
 # Use SCSS for stylesheets
